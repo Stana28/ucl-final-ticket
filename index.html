@@ -5,131 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UEFA Mobile Ticket</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            color: #000046;
-        }
-        .ticket-container {
-            width: 100%;
-            max-width: 450px;
-            background: white;
-            min-height: 100vh;
-            position: relative;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        .blue-section {
-            background-color: #0033ab;
-            padding: 40px 20px;
-            text-align: center;
-            position: relative;
-        }
-        .manage-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            border: 1px solid white;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 11px;
-            text-decoration: none;
-        }
-        .qr-wrapper {
-            background: white;
-            display: inline-block;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .qr-wrapper img {
-            width: 140px;
-            height: 140px;
-            display: block;
-        }
-        .timer {
-            margin-top: 10px;
-            font-weight: bold;
-            font-size: 16px;
-            color: #333;
-        }
-        .ucl-logo-bar {
-            background-color: #001a5e;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-        }
-        .ucl-logo-bar img {
-            height: 60px;
-        }
-        .owner-bar {
-            text-align: center;
-            padding: 12px;
-            background: #f8f9fa;
-            font-weight: bold;
-            font-size: 14px;
-            border-bottom: 1px solid #eee;
-        }
-        .forward-ticket {
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #eee;
-            color: #0033ab;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        .match-details {
-            text-align: center;
-            padding: 30px 20px;
-        }
-        .match-details h1 {
-            margin: 0;
-            font-size: 22px;
-            text-transform: uppercase;
-            line-height: 1.2;
-        }
-        .match-details p {
-            margin: 5px 0;
-            font-size: 13px;
-            color: #666;
-        }
-        .ko-time {
-            font-weight: bold;
-            color: #0033ab !important;
-            font-size: 15px !important;
-            margin-top: 10px !important;
-        }
-        .stand-box {
-            background: #f0f4ff;
-            margin: 0 20px;
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
-        }
-        .seat-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            padding: 20px;
-        }
-        .seat-item {
-            background: #f8f9fa;
-            padding: 12px;
-            text-align: center;
-            border-radius: 8px;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; color: #000046; }
+        .ticket-container { width: 100%; max-width: 450px; background: white; min-height: 100vh; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        .blue-section { background-color: #0033ab; padding: 40px 20px; text-align: center; position: relative; }
+        .manage-btn { position: absolute; top: 15px; right: 15px; border: 1px solid white; color: white; padding: 4px 12px; border-radius: 15px; font-size: 11px; text-decoration: none; }
+        .qr-wrapper { background: white; display: inline-block; padding: 15px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .qr-wrapper img { width: 140px; height: 140px; display: block; }
+        .timer { margin-top: 10px; font-weight: bold; font-size: 16px; color: #333; }
+        .ucl-logo-bar { background-color: #001a5e; padding: 15px; display: flex; justify-content: center; border-bottom: 1px dashed rgba(255,255,255,0.2); }
+        .owner-bar { text-align: center; padding: 12px; background: #f8f9fa; font-weight: bold; font-size: 14px; border-bottom: 1px solid #eee; }
+        .forward-ticket { padding: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; color: #0033ab; font-size: 14px; font-weight: 500; }
+        .match-details { text-align: center; padding: 30px 20px; }
+        .match-details h1 { margin: 0; font-size: 22px; text-transform: uppercase; line-height: 1.2; }
+        .match-details p { margin: 5px 0; font-size: 13px; color: #666; }
+        .ko-time { font-weight: bold; color: #0033ab !important; font-size: 15px !important; margin-top: 10px !important; }
+        .stand-box { background: #f0f4ff; margin: 0 20px; padding: 15px; text-align: center; border-radius: 8px; }
+        .seat-info { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding: 20px; }
+        .seat-item { background: #f8f9fa; padding: 12px; text-align: center; border-radius: 8px; }
         .label { font-size: 10px; color: #888; text-transform: uppercase; margin-bottom: 4px; }
         .value { font-size: 16px; font-weight: bold; color: #0033ab; }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 13px;
-        }
+        .footer { text-align: center; padding: 20px; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -143,8 +38,8 @@
         </div>
     </div>
 
-    <div style="background-color: #001a5e; padding: 20px 0; text-align: center; border-bottom: 1px dashed rgba(255,255,255,0.3); display: flex; justify-content: center;">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/UEFA_Champions_League_logo_2.svg/1200px-UEFA_Champions_League_logo_2.svg.png" style="height: 70px; width: auto;">
+    <div class="ucl-logo-bar">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAAB49AnBAAAAkFBMVEUAAAD///8BAQEDAwMGBgYJCQkMDAwPDw8SEhIVFRUXFxcbGxsfHx8iIiIlJSUoKCgrKysuLi4xMTE0NDQ3Nzc6Ojo9PT1AQEBDQ0NGRkZISEhLS0tOTk5RUVFUVFRXV1daWlpeXl5hYWFlZWVpaWltbW1wcHBzc3N2dnZ5enp9fX2BgYGFhYWIiIiLi4uPj4+SkpLjWhYhAAADsUlEQVRo3u2Z2XqiMBSGBySACCqC4oK2unS09v7P9SRAA6K2pZ0507N6L9asv8uXvIDv559W6vW6/YvA9AnpE9InpE9InpA+IX1C+oT0CekT0ieERXpU1XVNXVfXdVXVVdV1Y6re6fR/Eeg60Uunf88B6KHTZ6v68D0+fE2m69uXq/rvvL6O69v8X9fXv66va1W3vL6Wv66vC8T9v7++NqjWv6+v97oV377/1KqX87S+XutO6v+pVc/Wf2rVM/N09fN09fP0YfUvA678H9fXqfC+Pl6X3teh97Xvfe17f5O7Xv8mN6j9m9yD9V+E3L/X5O69JnfvNbl7r8nde03u3mty916Tu/ea3L3X5O69Jn9f+Z7qL5Xv6p697O05p9Xz3r6u7K+U98q99rJ9Nof2Zfskm2vlvHKvveyvX/Yvyv78Yp9lc62cV+61l32qfE/1K8o+XvYpMv9O9ivKPl72KTL/TvanuifZXCvnlXvtZZ9kf6Z7ks21cl651162VfZZNtfeVvYq+3zZp8r2WfZZ9j6yb7Kf7JPsk+zfy77JPrJf7D7J/lT2yP5U9si+yZ7YI/sm+z/ZI7I/kX2TPZJ9kj2yP5F9kj2S/Z/sHtmvYp8U+7TYp8U+LfZpsU+LfZLsD8Q+LfZp6WpY7AtiXxD7gtgXxL4g9gWxv4l9SuwLYp8S+5TYp8S+IPYpsU+KfULsU2KfEvuE2KfEPiH2GbEviH1G7DNiXxD7jNhnxD4h9gmxc8S+p9Xv9fUAsU8S+ySxr8S+ErsisUvEfifyO5HfifiNfUvkfiexT0Xsk8Q+Sexp9Tuxp8SeVv9O7N8S+3divxP7Z2KfEvuU2KfEvu8Xv6f6p8R+Z/F7qn9O7Hdivyv2q2K/KvarYr8q9v/E76mS9lS3u6vU7K6+D5X+7ur9UPm7q68Xv6f6f6r8vfh9qn9L9W+p/i3Vv6X6t1T/p8rf6vdfu6v73VX97qp+d1W/u6rfXdVfK99Xv6/6f76+r9Xv6/5X7+ve1+66v8m9v0n2N7mX6t/k3v+E9AnpE9InpE9In5A+IX1C+oT0CekT0iekTwiL9Kiq65q6rq7rqqqrquvG9Lur+t1V/e6qfndVv7uq313V767qd1f1u6v63VX97qrf6v8S6LrX9K6mf88B6K7X966qD9/j3vdu/7fA1KHeu/29+8W9792S3P8A7/0Y6mZq01YAAAAASUVORK5CYII=" alt="UCL Logo" class="ucl-final-ball">
     </div>
 
     <div class="owner-bar">DINKO KRUMPIR</div>
@@ -156,7 +51,7 @@
 
     <div class="match-details">
         <h1>GNK DINAMO ZAGREB<br>VS HNK GORICA</h1>
-        <p>PUŠEFA LIGA ŠAMPINJONA FINALE 2026</p>
+        <p>UEFA Champions League Final 2026</p>
         <p>Puskás Aréna, Budapest</p>
         <p class="ko-time">KO: 21:00 • Sat, 30 May 2026</p>
     </div>
