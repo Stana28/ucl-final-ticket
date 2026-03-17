@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UEFA Mobile Ticket</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            color: #000046;
+        }
+        .ticket-container {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .blue-section {
+            background-color: #0033ab;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .manage-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border: 1px solid white;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            text-decoration: none;
+        }
+        .qr-wrapper {
+            background: white;
+            display: inline-block;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .qr-wrapper img {
+            width: 140px;
+            height: 140px;
+            display: block;
+        }
+        .timer {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        .ucl-logo-bar {
+            background-color: #001a5e;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+        }
+        .ucl-logo-bar img {
+            height: 60px;
+        }
+        .owner-bar {
+            text-align: center;
+            padding: 12px;
+            background: #f8f9fa;
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+        }
+        .forward-ticket {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            color: #0033ab;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .match-details {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .match-details h1 {
+            margin: 0;
+            font-size: 22px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        .match-details p {
+            margin: 5px 0;
+            font-size: 13px;
+            color: #666;
+        }
+        .ko-time {
+            font-weight: bold;
+            color: #0033ab !important;
+            font-size: 15px !important;
+            margin-top: 10px !important;
+        }
+        .stand-box {
+            background: #f0f4ff;
+            margin: 0 20px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .seat-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 20px;
+        }
+        .seat-item {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .label { font-size: 10px; color: #888; text-transform: uppercase; margin-bottom: 4px; }
+        .value { font-size: 16px; font-weight: bold; color: #0033ab; }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ticket-container">
+    <div class="blue-section">
+        <a href="#" class="manage-btn">Manage</a>
+        <div class="qr-wrapper">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.uefa.com" alt="QR">
+            <div class="timer" id="clock">00:00:00</div>
+        </div>
+    </div>
+
+    <div class="ucl-logo-bar">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/UEFA_Champions_League_logo_2.svg/1200px-UEFA_Champions_League_logo_2.svg.png" alt="UCL Logo">
+    </div>
+
+    <div class="owner-bar">DINKO KRUMPIR</div>
+
+    <div class="forward-ticket">
+        <span>Forward Ticket</span>
+        <span>✎</span>
+    </div>
+
+    <div class="match-details">
+        <h1>GNK DINAMO ZAGREB<br>VS HNK GORICA</h1>
+        <p>PUŠEFA LIGA ŠAMPINJONA FINALE 2026</p>
+        <p>Puskás Aréna, Budapest</p>
+        <p class="ko-time">KO: 21:00 • Sat, 30 May 2026</p>
+    </div>
+
+    <div class="stand-box">
+        <div class="label">Stand</div>
+        <div class="value">Main Stand - Category 1 (VIP)</div>
+    </div>
+
+    <div class="seat-info">
+        <div class="seat-item">
+            <div class="label">Area</div>
+            <div class="value">V1</div>
+        </div>
+        <div class="seat-item">
+            <div class="label">Row</div>
+            <div class="value">01</div>
+        </div>
+        <div class="seat-item">
+            <div class="label">Seat</div>
+            <div class="value">100</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>DINKO KRUMPIR</div>
+        <div style="font-weight: bold; margin-top: 5px;">Adult €550.00</div>
+        <div style="color: #0033ab; text-decoration: underline; margin-top: 15px; font-size: 12px;">See Terms of Use</div>
+    </div>
+</div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('clock').textContent = now.toLocaleTimeString('hr-HR');
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
+</body>
+</html>
